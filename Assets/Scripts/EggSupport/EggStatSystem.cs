@@ -48,7 +48,6 @@ public class EggStatSystem : MonoBehaviour
     {
         Debug.Assert(CanSpawn());
         GameObject e = GameObject.Instantiate(mEggSample) as GameObject;
-        e.tag = "Bullet";
         EggBehavior egg = e.GetComponent<EggBehavior>(); // Shows how to get the script from GameObject
         if (null != egg)
         {
