@@ -132,9 +132,10 @@ GameObject:
   - component: {fileID: 89834373}
   - component: {fileID: 89834372}
   - component: {fileID: 89834371}
+  - component: {fileID: 89834374}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,6 +217,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &89834374
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89834370}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.61, y: 1.89}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.695, y: -0.53499997}
+      - {x: 0.805, y: -0.465}
+      - {x: 0.805, y: -0.355}
+      - {x: 0.345, y: 0.114999995}
+      - {x: 0.114999995, y: 0.225}
+      - {x: 0.16499999, y: 0.635}
+      - {x: 0.13499999, y: 0.875}
+      - {x: 0.055, y: 0.945}
+      - {x: -0.044999998, y: 0.945}
+      - {x: -0.085, y: 0.92499995}
+      - {x: -0.145, y: 0.765}
+      - {x: -0.125, y: 0.48499998}
+      - {x: -0.345, y: 0.114999995}
+      - {x: -0.33499998, y: 0.035}
+      - {x: -0.805, y: -0.36499998}
+      - {x: -0.805, y: -0.435}
+      - {x: -0.73499995, y: -0.525}
+      - {x: -0.085, y: -0.285}
+      - {x: -0.085, y: -0.60499996}
+      - {x: -0.275, y: -0.805}
+      - {x: -0.265, y: -0.945}
+      - {x: 0.285, y: -0.945}
+      - {x: 0.255, y: -0.72499996}
+      - {x: 0.095, y: -0.60499996}
+      - {x: 0.095, y: -0.285}
+    - - {x: -0.305, y: 0.275}
+      - {x: -0.325, y: 0.255}
+      - {x: -0.325, y: 0.155}
+      - {x: -0.305, y: 0.13499999}
+      - {x: -0.205, y: 0.13499999}
+      - {x: -0.185, y: 0.155}
+      - {x: -0.185, y: 0.255}
+      - {x: -0.205, y: 0.275}
+    - - {x: 0.195, y: 0.285}
+      - {x: 0.175, y: 0.265}
+      - {x: 0.175, y: 0.16499999}
+      - {x: 0.195, y: 0.145}
+      - {x: 0.295, y: 0.145}
+      - {x: 0.315, y: 0.16499999}
+      - {x: 0.315, y: 0.265}
+      - {x: 0.295, y: 0.285}
 --- !u!1 &114229644
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +496,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -751,6 +819,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -867,6 +936,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mEggStat: {fileID: 358654687}
+  mHeroSpeed: 20
+  kHeroRotateSpeed: 45
 --- !u!1 &1814210919
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +990,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -992,6 +1064,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
