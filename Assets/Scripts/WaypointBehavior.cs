@@ -19,7 +19,7 @@ public class WaypointBehavior : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (sprite.enabled && other.tag == "EggBullet")
         {
