@@ -4,12 +4,13 @@ using System.Collections;
 public class EnemyBehavior : MonoBehaviour {
 	
 	public float mSpeed = 20f;
+	private const float kRotateSpeed = 22f;
 
 	///////Gabe Code//////////////////////////////////////////
 	private bool targetRandomWaypoint = false;
 	//private char targetWayPoint;
 	//public Enums.Directions useSide = Enums.Directions.Up;
-	private Object currWayPoint;
+	private GameObject currWayPoint;
 	
 	/////////////////////////////////////////////////
 		
@@ -27,17 +28,6 @@ public class EnemyBehavior : MonoBehaviour {
 			targetRandomWaypoint = !targetRandomWaypoint;
 		}
 
-		/*if (targetRandomWaypoint) {
-			targetWayPoint = chooseRandomWaypoint();
-		} else {
-			
-		}*/
-
-		/*if () {
-
-		}*/
-		/////////////////////////////////////////////
-
 		transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
 		GlobalBehavior globalBehavior = GameObject.Find ("GameManager").GetComponent<GlobalBehavior>();
 		
@@ -49,7 +39,7 @@ public class EnemyBehavior : MonoBehaviour {
 			NewDirection();
 		}	
 	}
-
+	////////////////////////////////////////////////
 	////Gabe Code///////////////////////////////////
 	void FixedUpdate () {
 		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
@@ -68,38 +58,40 @@ public class EnemyBehavior : MonoBehaviour {
 	private /*char*/ void chooseRandomWaypoint() {
 		int randomNumber = (int) Random.Range(1f, 6f);
 		if (randomNumber == 1) {
-			currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointA"));
+			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
 		} else if (randomNumber == 2) {
-			currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointB"));
+			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointB"));
 		} else if (randomNumber == 3) {
-			currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointC"));
+			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointC"));
 		} else if (randomNumber == 4) {
-			currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointD"));
+			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointD"));
 		} else if (randomNumber == 5) {
-			currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointE"));
+			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointE"));
 		} else { //if (randomNumber == 6)
-			currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointF"));
+			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointF"));
 		}
 		//char waypointChar = (char) randomNumber;
 		//return waypointChar;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (targetRandomWaypoint) {
-			chooseRandomWaypoint();
-		} else {
-			if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointA"))) {
-				currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointB"));
-			} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointB"))) {
-				currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointC"));
-			} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointC"))) {
-				currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointD"));
-			} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointD"))) {
-				currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointE"));
-			} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointE"))) {
-				currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointF"));
-			} else { // if(currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointF"))) {
-				currWayPoint = Instantiate(Resources.Load("Prefabs/WaypointA"));
+		if (collision.GetComponent<Collider2D>() == currWayPoint.GetComponent<Collider2D>()) {
+			if (targetRandomWaypoint) {
+				chooseRandomWaypoint();
+			} else {
+				if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointA"))) {
+					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointB"));
+				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointB"))) {
+					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointC"));
+				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointC"))) {
+					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointD"));
+				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointD"))) {
+					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointE"));
+				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointE"))) {
+					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointF"));
+				} else { // if(currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointF"))) {
+					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
+				}
 			}
 		}
 	}
