@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 20
+  kRotateSpeed: 60
 --- !u!212 &89834372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -429,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 6444604211548218262, guid: b373bcbacde08604f8aa52f46fd47365,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6444604211548218262, guid: b373bcbacde08604f8aa52f46fd47365,
         type: 3}
@@ -636,7 +637,7 @@ PrefabInstance:
     - target: {fileID: 833400554673800539, guid: 233a18ebf94b3f44db167e31af522467,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 833400554673800539, guid: 233a18ebf94b3f44db167e31af522467,
         type: 3}
@@ -799,7 +800,7 @@ PrefabInstance:
     - target: {fileID: 1935986415888512866, guid: b984b5a27a4ab97409370ae9e469b5a6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1935986415888512866, guid: b984b5a27a4ab97409370ae9e469b5a6,
         type: 3}
@@ -975,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 3796166903516515602, guid: 722e78536723fa64999d5ebbf1be25c3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3796166903516515602, guid: 722e78536723fa64999d5ebbf1be25c3,
         type: 3}
@@ -1131,7 +1132,7 @@ GameObject:
   - component: {fileID: 1660550320}
   m_Layer: 0
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -4,20 +4,19 @@ using System.Collections;
 public class EnemyBehavior : MonoBehaviour {
 	
 	public float mSpeed = 20f;
-	private const float kRotateSpeed = 22f;
+	public float kRotateSpeed = 120f/2f;
 
 	///////Gabe Code//////////////////////////////////////////
 	private bool targetRandomWaypoint = false;
-	//private char targetWayPoint;
 	//public Enums.Directions useSide = Enums.Directions.Up;
 	private GameObject currWayPoint;
-	
+	private GameObject greenHero = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
 	/////////////////////////////////////////////////
 		
 	// Use this for initialization
 	void Start () {
 		NewDirection();
-		/*targetWayPoint = */chooseRandomWaypoint();
+		chooseRandomWaypoint();
 	}
 	
 	// Update is called once per frame
@@ -70,11 +69,10 @@ public class EnemyBehavior : MonoBehaviour {
 		} else { //if (randomNumber == 6)
 			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointF"));
 		}
-		//char waypointChar = (char) randomNumber;
-		//return waypointChar;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D collision) {
+		//on collision with a waypoint
 		if (collision.GetComponent<Collider2D>() == currWayPoint.GetComponent<Collider2D>()) {
 			if (targetRandomWaypoint) {
 				chooseRandomWaypoint();
@@ -93,28 +91,14 @@ public class EnemyBehavior : MonoBehaviour {
 					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
 				}
 			}
+		
+		} else if (collision.GetComponent<Collider2D>().CompareTag("Player")) { // on collision with hero object
+			//increment "touched enemy" counter
+			//teleport this object to a random location
+		} else if (collision.GetComponent<Collider2D>().CompareTag("EggBullet")) { // on collision with egg object
+			//increment "destroyed enemy" counter
+			//teleport this object to a random location
 		}
-	}
+	}	
+	/////////////////////////////////////////////////////
 }
-/////////////////////////////////////////////////////
-
-//on collision with a waypoint
-
-
-
-
-/*
-on collision with player
-
-increment "touched enemy" counter
-teleport this object to a random location
-
-*/
-
-/*
-on collision with bullet
-
-increment "destroyed enemy" counter
-teleport this object to a random location
-
-*/
