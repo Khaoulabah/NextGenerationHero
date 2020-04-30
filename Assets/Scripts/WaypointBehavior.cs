@@ -25,6 +25,7 @@ public class WaypointBehavior : MonoBehaviour
         {
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - .25f);
             Destroy(other.gameObject);
+            GlobalBehavior.sTheGlobalBehavior.DestroyAnEgg();
             if (sprite.color.a == 0)
             {
                 sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
