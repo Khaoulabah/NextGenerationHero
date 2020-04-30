@@ -26,6 +26,7 @@ public class EnemyBehavior : MonoBehaviour {
 		if (Input.GetKey(KeyCode.J)) {
 			targetRandomWaypoint = !targetRandomWaypoint;
 		}
+		////////////////////////////////////////////////
 
 		transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
 		GlobalBehavior globalBehavior = GameObject.Find ("GameManager").GetComponent<GlobalBehavior>();
@@ -38,7 +39,7 @@ public class EnemyBehavior : MonoBehaviour {
 			NewDirection();
 		}	
 	}
-	////////////////////////////////////////////////
+
 	////Gabe Code///////////////////////////////////
 	void FixedUpdate () {
 		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
@@ -54,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 
 	//////Gabe Code//////////////////////////////////////////
-	private /*char*/ void chooseRandomWaypoint() {
+	private void chooseRandomWaypoint() {
 		int randomNumber = (int) Random.Range(1f, 6f);
 		if (randomNumber == 1) {
 			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
