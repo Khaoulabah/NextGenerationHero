@@ -124,7 +124,10 @@ public class EnemyBehavior : MonoBehaviour {
 		
 		} else if (collision.GetComponent<Collider2D>().CompareTag("Player")) { // on collision with hero object
 			//increment "touched enemy" counter
-			//teleport this object to a random location
+			float deltaX = Random.Range(-15, 15);
+            float deltaY = Random.Range(-15, 15);
+            transform.position = new Vector3(transform.position.x + deltaX, transform.position.y + deltaY);
+            GlobalBehavior.sTheGlobalBehavior.ObjectClampToWorldBound(transform);
 		} else if (collision.GetComponent<Collider2D>().CompareTag("EggBullet")) { // on collision with egg object
 			//increment "destroyed enemy" counter
 			//teleport this object to a random location
