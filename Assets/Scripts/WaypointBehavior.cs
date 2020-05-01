@@ -11,7 +11,7 @@ public class WaypointBehavior : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
