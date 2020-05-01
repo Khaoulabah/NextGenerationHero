@@ -10,7 +10,7 @@ public class EnemyBehavior : MonoBehaviour {
 	private bool targetRandomWaypoint = false;
 	//public Enums.Directions useSide = Enums.Directions.Up;
 	private GameObject currWayPoint;
-	//private GameObject greenArrow = GameObject
+	//private GameObject greenArrow = GameObject.FindGameObjectWithTag("WaypointA");
 	/////////////////////////////////////////////////
 		
 	// Use this for initialization
@@ -45,7 +45,7 @@ public class EnemyBehavior : MonoBehaviour {
 	void FixedUpdate () {
 		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
 		///Gabe Code//////////////////////////////////////////////////////////////////////////////////////
-		PointAtPosition(mMyTarget.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
+		PointAtPosition(currWayPoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
         transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		//////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -68,17 +68,17 @@ public class EnemyBehavior : MonoBehaviour {
 	private void chooseRandomWaypoint() {
 		int randomNumber = (int) Random.Range(1f, 6f);
 		if (randomNumber == 1) {
-			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
+			currWayPoint = GameObject.FindGameObjectWithTag("WaypointA");
 		} else if (randomNumber == 2) {
-			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointB"));
+			currWayPoint = GameObject.FindGameObjectWithTag("WaypointB");
 		} else if (randomNumber == 3) {
-			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointC"));
+			currWayPoint = GameObject.FindGameObjectWithTag("WaypointC");
 		} else if (randomNumber == 4) {
-			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointD"));
+			currWayPoint = GameObject.FindGameObjectWithTag("WaypointD");
 		} else if (randomNumber == 5) {
-			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointE"));
+			currWayPoint = GameObject.FindGameObjectWithTag("WaypointE");
 		} else { //if (randomNumber == 6)
-			currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointF"));
+			currWayPoint = GameObject.FindGameObjectWithTag("WaypointF");
 		}
 	}
 	
@@ -88,18 +88,18 @@ public class EnemyBehavior : MonoBehaviour {
 			if (targetRandomWaypoint) {
 				chooseRandomWaypoint();
 			} else {
-				if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointA"))) {
-					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointB"));
-				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointB"))) {
-					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointC"));
-				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointC"))) {
-					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointD"));
-				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointD"))) {
-					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointE"));
-				} else if (currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointE"))) {
-					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointF"));
-				} else { // if(currWayPoint == Instantiate(Resources.Load("Prefabs/WaypointF"))) {
-					currWayPoint = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
+				if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointA")) {
+					currWayPoint = GameObject.FindGameObjectWithTag("WaypointB");
+				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointB")) {
+					currWayPoint = GameObject.FindGameObjectWithTag("WaypointC");
+				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointC")) {
+					currWayPoint = GameObject.FindGameObjectWithTag("WaypointD");
+				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointD")) {
+					currWayPoint = GameObject.FindGameObjectWithTag("WaypointE");
+				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointE")) {
+					currWayPoint = GameObject.FindGameObjectWithTag("WaypointF");
+				} else { // if(currWayPoint == GameObject.FindGameObjectWithTag("WaypointF")) {
+					currWayPoint = GameObject.FindGameObjectWithTag("WaypointA");
 				}
 			}
 		
