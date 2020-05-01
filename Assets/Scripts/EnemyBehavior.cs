@@ -10,7 +10,7 @@ public class EnemyBehavior : MonoBehaviour {
 	private bool targetRandomWaypoint = false;
 	//public Enums.Directions useSide = Enums.Directions.Up;
 	private GameObject currWayPoint;
-	private GameObject greenHero = (GameObject) Instantiate(Resources.Load("Prefabs/WaypointA"));
+	//private GameObject greenArrow = GameObject
 	/////////////////////////////////////////////////
 		
 	// Use this for initialization
@@ -41,11 +41,21 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 
 	////Gabe Code///////////////////////////////////
+	 
 	void FixedUpdate () {
 		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
-
+		///Gabe Code//////////////////////////////////////////////////////////////////////////////////////
+		PointAtPosition(mMyTarget.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
+        transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
+		//////////////////////////////////////////////////////////////////////////////////////////////////
 
 	}
+
+	private void PointAtPosition(Vector3 p, float r)
+    {
+        Vector3 v = p - transform.localPosition;
+        transform.up = Vector3.LerpUnclamped(transform.up, v, r);
+    }
 	////////////////////////////////////////////////
 
 	// New direction will be something completely random!

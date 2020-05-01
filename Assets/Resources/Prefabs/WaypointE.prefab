@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2174291538121111626, guid: b373bcbacde08604f8aa52f46fd47365,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.02
+      objectReference: {fileID: 0}
     - target: {fileID: 2660963875887003723, guid: b373bcbacde08604f8aa52f46fd47365,
         type: 3}
       propertyPath: m_Sprite
@@ -76,6 +81,11 @@ PrefabInstance:
     - target: {fileID: 8009257761705929342, guid: b373bcbacde08604f8aa52f46fd47365,
         type: 3}
       propertyPath: m_Name
+      value: WaypointE
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009257761705929342, guid: b373bcbacde08604f8aa52f46fd47365,
+        type: 3}
+      propertyPath: m_TagString
       value: WaypointE
       objectReference: {fileID: 0}
     m_RemovedComponents: []

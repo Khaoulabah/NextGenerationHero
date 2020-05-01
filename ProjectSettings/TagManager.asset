@@ -6,6 +6,12 @@ TagManager:
   tags:
   - EggBullet
   - Enemy
+  - WaypointA
+  - WaypointB
+  - WaypointC
+  - WaypointD
+  - WaypointE
+  - WaypointF
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaypointA
       objectReference: {fileID: 0}
+    - target: {fileID: 1389954592464105421, guid: 28b794bbd25c55a4bbb6f1529883167d,
+        type: 3}
+      propertyPath: m_TagString
+      value: WaypointA
+      objectReference: {fileID: 0}
     - target: {fileID: 2667063687854564901, guid: 28b794bbd25c55a4bbb6f1529883167d,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1518,7 +1518,7 @@ PrefabInstance:
     - target: {fileID: 7394049758428653248, guid: e509d1a4fcda9af4fb73b98bc4f35209,
         type: 3}
       propertyPath: m_Name
-      value: Waypoint
+      value: WaypointF
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e509d1a4fcda9af4fb73b98bc4f35209, type: 3}

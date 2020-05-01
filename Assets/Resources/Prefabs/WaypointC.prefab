@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaypointC
       objectReference: {fileID: 0}
+    - target: {fileID: 1389954592464105421, guid: 28b794bbd25c55a4bbb6f1529883167d,
+        type: 3}
+      propertyPath: m_TagString
+      value: WaypointC
+      objectReference: {fileID: 0}
     - target: {fileID: 2667063687854564901, guid: 28b794bbd25c55a4bbb6f1529883167d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,6 +92,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079702096465100281, guid: 28b794bbd25c55a4bbb6f1529883167d,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079702096465100281, guid: 28b794bbd25c55a4bbb6f1529883167d,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28b794bbd25c55a4bbb6f1529883167d, type: 3}

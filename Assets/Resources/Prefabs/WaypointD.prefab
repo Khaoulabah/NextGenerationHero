@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaypointD
       objectReference: {fileID: 0}
+    - target: {fileID: 3213122063305866890, guid: b984b5a27a4ab97409370ae9e469b5a6,
+        type: 3}
+      propertyPath: m_TagString
+      value: WaypointD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678262368595134, guid: b984b5a27a4ab97409370ae9e469b5a6,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.08
+      objectReference: {fileID: 0}
     - target: {fileID: 7447951621976321215, guid: b984b5a27a4ab97409370ae9e469b5a6,
         type: 3}
       propertyPath: m_Sprite
