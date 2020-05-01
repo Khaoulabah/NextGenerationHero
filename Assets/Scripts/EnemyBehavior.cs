@@ -124,14 +124,19 @@ public class EnemyBehavior : MonoBehaviour {
 		
 		} else if (collision.GetComponent<Collider2D>().CompareTag("Player")) { // on collision with hero object
 			//increment "touched enemy" counter
-			float deltaX = Random.Range(-20, 20);
-            float deltaY = Random.Range(-20, 20);
-            transform.position = new Vector3(-1.5f * transform.position.x + deltaX, -1.5f * transform.position.y + deltaY);
-            GlobalBehavior.sTheGlobalBehavior.ObjectClampToWorldBound(transform);
+			collisionHelper();
 		} else if (collision.GetComponent<Collider2D>().CompareTag("EggBullet")) { // on collision with egg object
 			//increment "destroyed enemy" counter
-			//teleport this object to a random location
+			collisionHelper();
 		}
 	}	
+
+	private void collisionHelper() {
+		float deltaX = Random.Range(-20, 20);
+        float deltaY = Random.Range(-20, 20);
+        transform.position = new Vector3(-1.5f * transform.position.x + deltaX, -1.5f * transform.position.y + deltaY);
+        GlobalBehavior.sTheGlobalBehavior.ObjectClampToWorldBound(transform);
+		chooseRandomWaypoint();
+	}
 	/////////////////////////////////////////////////////
 }
