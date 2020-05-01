@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyBehavior : MonoBehaviour {
 	
 	public float mSpeed = 20f;
-	public float kRotateSpeed = 120f/2f;
+	public float kRotateSpeed = 0.05f;
 
 	///////Gabe Code//////////////////////////////////////////
 	private bool targetRandomWaypoint = true;
@@ -16,7 +16,6 @@ public class EnemyBehavior : MonoBehaviour {
 		
 	// Use this for initialization
 	void Start () {
-		Debug.Log(targetRandomWaypoint.ToString());
 		NewDirection();
 		chooseRandomWaypoint();
 	}
@@ -27,19 +26,18 @@ public class EnemyBehavior : MonoBehaviour {
 		////Gabe Code////////////////////////////////////////
 		if (Input.GetKeyDown(KeyCode.J)) {
 			targetRandomWaypoint = !targetRandomWaypoint;
-			Debug.Log("J was pressed");
-			Debug.Log(targetRandomWaypoint.ToString());
 		}
+		PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
+        transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		////////////////////////////////////////////////
 
-		transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
+		//transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
 		GlobalBehavior globalBehavior = GameObject.Find ("GameManager").GetComponent<GlobalBehavior>();
 		
 		GlobalBehavior.WorldBoundStatus status =
 			globalBehavior.ObjectCollideWorldBound(GetComponent<Renderer>().bounds);
 			
 		if (status != GlobalBehavior.WorldBoundStatus.Inside) {
-			Debug.Log("collided position: " + this.transform.position);
 			NewDirection();
 		}	
 	}
@@ -49,8 +47,8 @@ public class EnemyBehavior : MonoBehaviour {
 	void FixedUpdate () {
 		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
 		///Gabe Code//////////////////////////////////////////////////////////////////////////////////////
-		PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
-        transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
+		//PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
+        //transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		//////////////////////////////////////////////////////////////////////////////////////////////////
 
 	}
@@ -71,7 +69,7 @@ public class EnemyBehavior : MonoBehaviour {
 	//////Gabe Code//////////////////////////////////////////
 	private void chooseRandomWaypoint() {
 		int randomNumber = (int) Random.Range(1f, 6f);
-		Debug.Log(randomNumber);
+
 		if (randomNumber == 1 && waypointNum != 1) {
 			waypointNum = 1;
 			currWaypoint = GameObject.FindGameObjectWithTag("WaypointA");
@@ -96,15 +94,10 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 	
 	private void OnTriggerEnter2D(Collider2D collision) {
-		Debug.Log("Collided with something!");
-		Debug.Log("collision: " + collision);
-		Debug.Log("currWaypoint: " + currWaypoint);
 		GameObject collObject = collision.gameObject;
 		//on collision with a waypoint
 		if (collObject == currWaypoint) {
-			Debug.Log("Collided with correct waypoint");
 			if (targetRandomWaypoint) {
-				Debug.Log("Choosing next random Waypoint");
 				chooseRandomWaypoint();
 			} else {
 				if (currWaypoint == GameObject.FindGameObjectWithTag("WaypointA")) {
@@ -123,10 +116,10 @@ public class EnemyBehavior : MonoBehaviour {
 			}
 		
 		} else if (collision.GetComponent<Collider2D>().CompareTag("Player")) { // on collision with hero object
-			//increment "touched enemy" counter
+			//increment "touched enemy" counter///////////////////////////////////////////
 			collisionHelper();
 		} else if (collision.GetComponent<Collider2D>().CompareTag("EggBullet")) { // on collision with egg object
-			//increment "destroyed enemy" counter
+			//increment "destroyed enemy" counter/////////////////////////////////////////
 			collisionHelper();
 		}
 	}	
