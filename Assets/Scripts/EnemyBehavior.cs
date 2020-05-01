@@ -10,7 +10,7 @@ public class EnemyBehavior : MonoBehaviour {
 	private bool targetRandomWaypoint = true;
 	private float waypointNum = 0;
 	//public Enums.Directions useSide = Enums.Directions.Up;
-	private GameObject currWayPoint;
+	private GameObject currWaypoint;
 	//private GameObject greenArrow = GameObject.FindGameObjectWithTag("WaypointA");
 	/////////////////////////////////////////////////
 		
@@ -49,7 +49,7 @@ public class EnemyBehavior : MonoBehaviour {
 	void FixedUpdate () {
 		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
 		///Gabe Code//////////////////////////////////////////////////////////////////////////////////////
-		PointAtPosition(currWayPoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
+		PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
         transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		//////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -70,26 +70,26 @@ public class EnemyBehavior : MonoBehaviour {
 
 	//////Gabe Code//////////////////////////////////////////
 	private void chooseRandomWaypoint() {
-		int randomNumber = 1;//(int) Random.Range(1f, 6f);
+		int randomNumber = (int) Random.Range(1f, 6f);
 		Debug.Log(randomNumber);
 		if (randomNumber == 1 && waypointNum != 1) {
 			waypointNum = 1;
-			currWayPoint = GameObject.FindGameObjectWithTag("WaypointA");
+			currWaypoint = GameObject.FindGameObjectWithTag("WaypointA");
 		} else if (randomNumber == 2 && waypointNum != 2) {
 			waypointNum = 2;
-			currWayPoint = GameObject.FindGameObjectWithTag("WaypointB");
+			currWaypoint = GameObject.FindGameObjectWithTag("WaypointB");
 		} else if (randomNumber == 3 && waypointNum != 3) {
 			waypointNum = 3;
-			currWayPoint = GameObject.FindGameObjectWithTag("WaypointC");
+			currWaypoint = GameObject.FindGameObjectWithTag("WaypointC");
 		} else if (randomNumber == 4 && waypointNum != 4) {
 			waypointNum = 4;
-			currWayPoint = GameObject.FindGameObjectWithTag("WaypointD");
+			currWaypoint = GameObject.FindGameObjectWithTag("WaypointD");
 		} else if (randomNumber == 5 && waypointNum != 5) {
 			waypointNum = 5;
-			currWayPoint = GameObject.FindGameObjectWithTag("WaypointE");
+			currWaypoint = GameObject.FindGameObjectWithTag("WaypointE");
 		} else if (randomNumber == 6 && waypointNum != 6) {
 			waypointNum = 6;
-			currWayPoint = GameObject.FindGameObjectWithTag("WaypointF");
+			currWaypoint = GameObject.FindGameObjectWithTag("WaypointF");
 		} else {
 			chooseRandomWaypoint();
 		}
@@ -97,25 +97,28 @@ public class EnemyBehavior : MonoBehaviour {
 	
 	private void OnTriggerEnter2D(Collider2D collision) {
 		Debug.Log("Collided with something!");
+		Debug.Log("collision: " + collision);
+		Debug.Log("currWaypoint: " + currWaypoint);
+		GameObject collObject = collision.gameObject;
 		//on collision with a waypoint
-		if (collision == currWayPoint) {
+		if (collObject == currWaypoint) {
 			Debug.Log("Collided with correct waypoint");
 			if (targetRandomWaypoint) {
 				Debug.Log("Choosing next random Waypoint");
 				chooseRandomWaypoint();
 			} else {
-				if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointA")) {
-					currWayPoint = GameObject.FindGameObjectWithTag("WaypointB");
-				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointB")) {
-					currWayPoint = GameObject.FindGameObjectWithTag("WaypointC");
-				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointC")) {
-					currWayPoint = GameObject.FindGameObjectWithTag("WaypointD");
-				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointD")) {
-					currWayPoint = GameObject.FindGameObjectWithTag("WaypointE");
-				} else if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointE")) {
-					currWayPoint = GameObject.FindGameObjectWithTag("WaypointF");
-				} else { // if(currWayPoint == GameObject.FindGameObjectWithTag("WaypointF")) {
-					currWayPoint = GameObject.FindGameObjectWithTag("WaypointA");
+				if (currWaypoint == GameObject.FindGameObjectWithTag("WaypointA")) {
+					currWaypoint = GameObject.FindGameObjectWithTag("WaypointB");
+				} else if (currWaypoint == GameObject.FindGameObjectWithTag("WaypointB")) {
+					currWaypoint = GameObject.FindGameObjectWithTag("WaypointC");
+				} else if (currWaypoint == GameObject.FindGameObjectWithTag("WaypointC")) {
+					currWaypoint = GameObject.FindGameObjectWithTag("WaypointD");
+				} else if (currWaypoint == GameObject.FindGameObjectWithTag("WaypointD")) {
+					currWaypoint = GameObject.FindGameObjectWithTag("WaypointE");
+				} else if (currWaypoint == GameObject.FindGameObjectWithTag("WaypointE")) {
+					currWaypoint = GameObject.FindGameObjectWithTag("WaypointF");
+				} else { // if(currWaypoint == GameObject.FindGameObjectWithTag("WaypointF")) {
+					currWaypoint = GameObject.FindGameObjectWithTag("WaypointA");
 				}
 			}
 		
