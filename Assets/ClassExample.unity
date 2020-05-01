@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 89834372}
   - component: {fileID: 89834371}
   - component: {fileID: 89834374}
+  - component: {fileID: 89834375}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -152,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689646e81dce4be4887fc107bbf4455e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSpeed: 20
-  kRotateSpeed: 60
+  mSpeed: 10
+  kRotateSpeed: 30
 --- !u!212 &89834372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -284,6 +285,27 @@ PolygonCollider2D:
       - {x: 0.315, y: 0.16499999}
       - {x: 0.315, y: 0.265}
       - {x: 0.295, y: 0.285}
+--- !u!50 &89834375
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89834370}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &114229644
 GameObject:
   m_ObjectHideFlags: 0

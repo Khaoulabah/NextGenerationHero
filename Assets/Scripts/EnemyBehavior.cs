@@ -7,7 +7,8 @@ public class EnemyBehavior : MonoBehaviour {
 	public float kRotateSpeed = 120f/2f;
 
 	///////Gabe Code//////////////////////////////////////////
-	private bool targetRandomWaypoint = false;
+	private bool targetRandomWaypoint = true;
+	private float waypointNum = 0;
 	//public Enums.Directions useSide = Enums.Directions.Up;
 	private GameObject currWayPoint;
 	//private GameObject greenArrow = GameObject.FindGameObjectWithTag("WaypointA");
@@ -15,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour {
 		
 	// Use this for initialization
 	void Start () {
+		Debug.Log(targetRandomWaypoint.ToString());
 		NewDirection();
 		chooseRandomWaypoint();
 	}
@@ -23,8 +25,10 @@ public class EnemyBehavior : MonoBehaviour {
 	void Update () {
 		
 		////Gabe Code////////////////////////////////////////
-		if (Input.GetKey(KeyCode.J)) {
+		if (Input.GetKeyDown(KeyCode.J)) {
 			targetRandomWaypoint = !targetRandomWaypoint;
+			Debug.Log("J was pressed");
+			Debug.Log(targetRandomWaypoint.ToString());
 		}
 		////////////////////////////////////////////////
 
@@ -66,26 +70,38 @@ public class EnemyBehavior : MonoBehaviour {
 
 	//////Gabe Code//////////////////////////////////////////
 	private void chooseRandomWaypoint() {
-		int randomNumber = (int) Random.Range(1f, 6f);
-		if (randomNumber == 1) {
+		int randomNumber = 1;//(int) Random.Range(1f, 6f);
+		Debug.Log(randomNumber);
+		if (randomNumber == 1 && waypointNum != 1) {
+			waypointNum = 1;
 			currWayPoint = GameObject.FindGameObjectWithTag("WaypointA");
-		} else if (randomNumber == 2) {
+		} else if (randomNumber == 2 && waypointNum != 2) {
+			waypointNum = 2;
 			currWayPoint = GameObject.FindGameObjectWithTag("WaypointB");
-		} else if (randomNumber == 3) {
+		} else if (randomNumber == 3 && waypointNum != 3) {
+			waypointNum = 3;
 			currWayPoint = GameObject.FindGameObjectWithTag("WaypointC");
-		} else if (randomNumber == 4) {
+		} else if (randomNumber == 4 && waypointNum != 4) {
+			waypointNum = 4;
 			currWayPoint = GameObject.FindGameObjectWithTag("WaypointD");
-		} else if (randomNumber == 5) {
+		} else if (randomNumber == 5 && waypointNum != 5) {
+			waypointNum = 5;
 			currWayPoint = GameObject.FindGameObjectWithTag("WaypointE");
-		} else { //if (randomNumber == 6)
+		} else if (randomNumber == 6 && waypointNum != 6) {
+			waypointNum = 6;
 			currWayPoint = GameObject.FindGameObjectWithTag("WaypointF");
+		} else {
+			chooseRandomWaypoint();
 		}
 	}
 	
 	private void OnTriggerEnter2D(Collider2D collision) {
+		Debug.Log("Collided with something!");
 		//on collision with a waypoint
-		if (collision.GetComponent<Collider2D>() == currWayPoint.GetComponent<Collider2D>()) {
+		if (collision == currWayPoint) {
+			Debug.Log("Collided with correct waypoint");
 			if (targetRandomWaypoint) {
+				Debug.Log("Choosing next random Waypoint");
 				chooseRandomWaypoint();
 			} else {
 				if (currWayPoint == GameObject.FindGameObjectWithTag("WaypointA")) {
