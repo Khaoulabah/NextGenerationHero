@@ -26,6 +26,7 @@ public class HeroBehavior : MonoBehaviour {
     private void UpdateMotion() {
         if (Input.GetKeyDown(KeyCode.M)) {
             controlToggle = !controlToggle;
+            MouKey.mouseState = !MouKey.mouseState;
         }
         if (controlToggle) { 
             mHeroSpeed += Input.GetAxis("Vertical");
