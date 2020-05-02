@@ -1349,6 +1349,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4243741491021156339, guid: 3fc962afcea80fd45995682be29a27d6,
+        type: 3}
+      propertyPath: kRotateSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243741491021156339, guid: 3fc962afcea80fd45995682be29a27d6,
+        type: 3}
+      propertyPath: mSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4243741491021156341, guid: 3fc962afcea80fd45995682be29a27d6,
         type: 3}
       propertyPath: m_LocalPosition.x
