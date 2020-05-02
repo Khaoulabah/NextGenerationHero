@@ -29,7 +29,6 @@ public class EnemyBehavior : MonoBehaviour {
 		}
 		////////////////////////////////////////////////
 
-		//transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
 		GlobalBehavior globalBehavior = GameObject.Find ("GameManager").GetComponent<GlobalBehavior>();
 		
 		GlobalBehavior.WorldBoundStatus status =
@@ -41,12 +40,7 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 
 	////Gabe Code///////////////////////////////////
-	 
 	void FixedUpdate () {
-		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
-		///Gabe Code//////////////////////////////////////////////////////////////////////////////////////
-		//transform.Rotate(Vector3.up * mSpeed * Time.deltaTime);
-		//transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
         transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		//////////////////////////////////////////////////////////////////////////////////////////////////
