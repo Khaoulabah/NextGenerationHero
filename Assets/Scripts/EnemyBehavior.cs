@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyBehavior : MonoBehaviour {
 	
 	public float mSpeed = 20f;
-	public float kRotateSpeed = 0.05f;
+	public float kRotateSpeed = 0.01f;
 
 	///////Gabe Code//////////////////////////////////////////
 	private bool targetRandomWaypoint = true;
@@ -27,8 +27,6 @@ public class EnemyBehavior : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.J)) {
 			targetRandomWaypoint = !targetRandomWaypoint;
 		}
-		PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
-        transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		////////////////////////////////////////////////
 
 		//transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
@@ -47,16 +45,21 @@ public class EnemyBehavior : MonoBehaviour {
 	void FixedUpdate () {
 		//Utils.SetAxisTowards(useSide, transform, targetWayPoint.position - transform.position);
 		///Gabe Code//////////////////////////////////////////////////////////////////////////////////////
-		//PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
-        //transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
+		//transform.Rotate(Vector3.up * mSpeed * Time.deltaTime);
+		//transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
+		PointAtPosition(currWaypoint.transform.localPosition, kRotateSpeed * Time.smoothDeltaTime);
+        transform.localPosition += mSpeed * Time.smoothDeltaTime * transform.up;
 		//////////////////////////////////////////////////////////////////////////////////////////////////
 
 	}
 
 	private void PointAtPosition(Vector3 p, float r)
     {
+		Debug.Log("current position: " + transform.position);
         Vector3 v = p - transform.localPosition;
+		Debug.Log("transform.up before: " + transform.up);
         transform.up = Vector3.LerpUnclamped(transform.up, v, r);
+		Debug.Log("transform.up after: " + transform.up);
     }
 	////////////////////////////////////////////////
 
