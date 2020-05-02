@@ -1,7 +1,11 @@
 <h1 align="center">NextGenerationHero Project</h1>
-Group members: Khaoula Bahloul, 
+Group members: Khaoula Bahloul, Johnny Pham,
 
-## Herro
+## Hero
+
+The control scheme to move the hero can be toggled by clicking the M-key, to switch between WASD and mouse movement.
+
+Eggs that the hero shoots get destroyed when making contact with the world bounds, enemies, and waypoints.
 
 ## Waypoints
 
