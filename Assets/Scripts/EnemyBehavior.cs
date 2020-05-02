@@ -114,6 +114,7 @@ public class EnemyBehavior : MonoBehaviour {
 		
 		} else if (collision.GetComponent<Collider2D>().CompareTag("Player")) { // on collision with hero object
 			//increment "touched enemy" counter///////////////////////////////////////////
+			Touched.touchedAmount++;
 			collisionHelper();
 		} else if (collision.GetComponent<Collider2D>().CompareTag("EggBullet")) { // on collision with egg object
 			//increment "destroyed enemy" counter/////////////////////////////////////////
