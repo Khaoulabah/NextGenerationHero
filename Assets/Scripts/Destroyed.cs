@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Touched : MonoBehaviour
+public class Destroyed : MonoBehaviour
 {
-    public static int touchedAmount;
-    private Text touchedText;
+    public static int destroyedAmount;
+    private Text destroyedText;
 
     // Start is called before the first frame update
     void Start()
     {
-        touchedText = GetComponent<Text>();
-        touchedAmount = 0;
+        destroyedText = GetComponent<Text>();
+        destroyedAmount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        touchedText.text = "EnemiesTouched: " + touchedAmount;
+        destroyedText.text = "EnemiesDestroyed: " + destroyedAmount;
     }
 }
