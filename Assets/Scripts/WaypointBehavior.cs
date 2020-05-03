@@ -5,10 +5,12 @@ public class WaypointBehavior : MonoBehaviour
 {
     public char character;
     SpriteRenderer sprite = null;
+    Vector3 initialPosition;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        initialPosition = transform.position;
     }
 
     void Update()
@@ -32,7 +34,7 @@ public class WaypointBehavior : MonoBehaviour
 
                 float deltaX = Random.Range(-15, 15);
                 float deltaY = Random.Range(-15, 15);
-                transform.position = new Vector3(transform.position.x + deltaX, transform.position.y + deltaY);
+                transform.position = new Vector3(initialPosition.x + deltaX, initialPosition.y + deltaY);
                 GlobalBehavior.sTheGlobalBehavior.ObjectClampToWorldBound(transform);
             }
         }
