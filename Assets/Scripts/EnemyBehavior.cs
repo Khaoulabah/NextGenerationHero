@@ -11,11 +11,12 @@ public class EnemyBehavior : MonoBehaviour {
 	private float waypointNum = 0;
 	//public Enums.Directions useSide = Enums.Directions.Up;
 	private GameObject currWaypoint;
-	//private GameObject greenArrow = GameObject.FindGameObjectWithTag("WaypointA");
+	public bool randOrderbool;
 	/////////////////////////////////////////////////
 		
 	// Use this for initialization
 	void Start () {
+		randOrderbool = true;
 		NewDirection();
 		chooseRandomWaypoint();
 	}
@@ -25,6 +26,13 @@ public class EnemyBehavior : MonoBehaviour {
 		
 		////Gabe Code////////////////////////////////////////
 		if (Input.GetKeyDown(KeyCode.J)) {
+			if (randOrderbool) {
+				WayOrder.waypointOrder = "alph";
+				randOrderbool = false;
+			} else {
+				WayOrder.waypointOrder = "rand";
+				randOrderbool = true;
+			}
 			targetRandomWaypoint = !targetRandomWaypoint;
 		}
 		////////////////////////////////////////////////
