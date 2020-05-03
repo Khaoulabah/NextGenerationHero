@@ -1,5 +1,6 @@
 <h1 align="center">NextGenerationHero Project</h1>
 Group members: Khaoula Bahloul, Johnny Pham, Gabriel Oliver
+
 Game Url: https://gabrieloliver.itch.io/group-ngh
 
 ## Hero
