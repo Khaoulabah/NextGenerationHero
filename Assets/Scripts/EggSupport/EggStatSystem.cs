@@ -24,7 +24,7 @@ public class EggStatSystem : MonoBehaviour
         Debug.Assert(mEggShotTime != null);
         mEggSample = Resources.Load<GameObject>("Prefabs/Egg");
 
-        mSpawnEggAt = Time.realtimeSinceStartup - mEggInterval.value ; // assume one was shot
+        mSpawnEggAt = Time.realtimeSinceStartup - mEggInterval.value; // assume one was shot
     }
 
     void Update()
@@ -74,6 +74,16 @@ public class EggStatSystem : MonoBehaviour
 
     // Count support
     private void EchoEggCount() { GlobalBehavior.sTheGlobalBehavior.UpdateGameState("Egg Count: " + mEggCount); }
-    public void DecEggCount() { mEggCount--; EchoEggCount(); }
+    public void DecEggCount()
+    {
+        mEggCount--;
+        // make sure the egg count doesn't go negative. 
+        // This can happen for example if an enemy is on top of a waypoint and the egg touches both of them
+        if (mEggCount < 0)
+        {
+            mEggCount = 0;
+        }
+        EchoEggCount();
+    }
     private void IncEggCount() { mEggCount++; EchoEggCount(); }
 }
