@@ -1,11 +1,13 @@
 <h1 align="center">NextGenerationHero Project</h1>
-Group members: Khaoula Bahloul, Johnny Pham,
+Group members: Khaoula Bahloul, Johnny Pham, Gabriel Oliver
 
 ## Hero
 
 The control scheme to move the hero can be toggled by clicking the M-key, to switch between WASD and mouse movement.
 
 Eggs that the hero shoots get destroyed when making contact with the world bounds, enemies, and waypoints.
+
+Counters are incremented each time the hero shoots an egg (also decrements after eggs disappear), the hero destroys an enemy with an egg, and when the hero collides with enemies.
 
 ## Waypoints
 
@@ -17,3 +19,9 @@ On the forth collision with an egg (when the alpha value reaches 0), a waypoint 
 
 
 ## Enemy 
+
+Enemies are destroyed when making contact with the hero, or when making contact with an egg.
+
+A new enemy spawns when one is destroyed.
+
+The enemy follows a path to a waypoint, either sequentially or through random waypoints (toggle with J-key). The enemy will still follow waypoints after they have been moved.
